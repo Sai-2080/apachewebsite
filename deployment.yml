@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: apache-website
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: apache-website
+  template:
+    metadata:
+      labels:
+        app: apache-website
+    spec:
+      containers:
+      - name: apache-website
+        image: sampath231/apache-website:v1
+        ports:
+        - containerPort: 80
